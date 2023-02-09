@@ -34,7 +34,7 @@ const response = await fetch('https://api.open-meteo.com/v1/forecast?latitude=' 
 const data = await response.json();
 
 var days = 0;
-if (Number.isInteger(args.d) {
+if (Number.isInteger(args.d)) {
 	 days = args.d;
 } else {
 	days = 1;
