@@ -18,7 +18,7 @@ if (args.n && !args.s) {
 	latitude = parseFloat(args.n);
 }
 if (args.s && !args.n) {
-	latitude = parseFloat(args.n)*-1;
+	latitude = parseFloat(args.s)*-1;
 }
 if (args.e && !args.w) {
 	longitude = parseFloat(args.e);
@@ -33,9 +33,11 @@ if (args.z) {
 const response = await fetch('https://api.open-meteo.com/v1/forecast?latitude=' + latitude + '&longitude=' + longitude + '&daily=precipitation_hours&timezone=' + timezone);
 const data = await response.json();
 
-var days = 1;
-if (args.d || args.d == NaN) {
+var days = 0;
+if (args.d) {
 	 days = args.d;
+} else {
+	days = 0;
 }
 
 if (days == 0) {
