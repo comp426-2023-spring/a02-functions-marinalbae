@@ -27,7 +27,7 @@ if (args.w) {
 	longitude = parseFloat(args.w)*-1;
 }
 if (args.z) {
-	timezone = arg.z;
+	timezone = args.z;
 }
 
 const response = await fetch('https://api.open-meteo.com/v1/forecast?latitude=' + latitude + '&longitude=' + longitude + '&daily=precipitation_hours&timezone=' + timezone);
