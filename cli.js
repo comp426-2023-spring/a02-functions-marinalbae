@@ -11,8 +11,8 @@ if (args.h) {
 }
 
 var timezone = moment.tz.guess();
-var longitude = 0;
-var latitude = 0;
+var longitude = NaN;
+var latitude = NaN;
 
 if (args.n) {
 	latitude = parseFloat(args.n);
