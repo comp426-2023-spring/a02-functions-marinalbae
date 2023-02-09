@@ -37,7 +37,7 @@ var days = 0;
 if (args.d) {
 	 days = args.d;
 } else {
-	days = 0;
+	days = 1;
 }
 
 if (days == 0) {
