@@ -14,16 +14,16 @@ var timezone = moment.tz.guess();
 var longitude = 0;
 var latitude = 0;
 
-if (args.n) {
+if (args.n && !args.s) {
 	latitude = parseFloat(args.n);
 }
-if (args.s) {
+if (args.s && !args.n) {
 	latitude = parseFloat(args.n)*-1;
 }
-if (args.e) {
+if (args.e && !args.w) {
 	longitude = parseFloat(args.e);
 }
-if (args.w) {
+if (args.w && !args.e) {
 	longitude = parseFloat(args.w)*-1;
 }
 if (args.z) {
