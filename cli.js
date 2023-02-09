@@ -30,3 +30,29 @@ if (args.z) {
 	timezone = arg.z;
 }
 
+const response = await fetch('https://api.open-meteo.com/v1/forecast?latitude=' + latitude + '&longitude=' + longitude + '&daily=precipitation_hours&timezone=' + timezone);
+const data = await response.json();
+
+var days = 1;
+if (args.d) {
+	 days = args.d;
+}
+
+if (days == 0) {
+  console.log("today.");
+} else if (days > 1) {
+  console.log("in " + days + " days.");
+} else {
+  console.log("tomorrow.");
+}
+
+if (args.j) {
+	console.log(data);
+	process.exit(0);
+}
+
+if (data.daily.precipitation_hours[days] != 0) {
+	console.log('You might need your galoshes ');
+} else {
+	console.log('You will not need your galoshes ');
+}
