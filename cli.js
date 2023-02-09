@@ -14,16 +14,16 @@ var timezone = moment.tz.guess();
 var longitude = 0;
 var latitude = 0;
 
-if (args.n && !args.s) {
+if (args.n) {
 	latitude = parseFloat(args.n);
 }
-if (args.s && !args.n) {
+if (args.s) {
 	latitude = parseFloat(args.s)*-1;
 }
-if (args.e && !args.w) {
+if (args.e) {
 	longitude = parseFloat(args.e);
 }
-if (args.w && !args.e) {
+if (args.w) {
 	longitude = parseFloat(args.w)*-1;
 }
 if (args.z) {
@@ -34,7 +34,7 @@ const response = await fetch('https://api.open-meteo.com/v1/forecast?latitude=' 
 const data = await response.json();
 
 var days = 0;
-if (args.d) {
+if (Number.isInteger(args.d) {
 	 days = args.d;
 } else {
 	days = 1;
